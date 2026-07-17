@@ -15,11 +15,20 @@ export default function ChatSection() {
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
-  /* ── Auto-scroll to bottom ── */
+  const firstRender = useRef(true);
+  
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+  
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   }, [messages, isLoading]);
 
+  
   /* ── Auto-resize textarea ── */
   const resizeTextarea = useCallback(() => {
     const ta = textareaRef.current;
