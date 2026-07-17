@@ -15,16 +15,11 @@ export default function ChatSection() {
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
-  const firstRender = useRef(true);
-  
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-  
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
+  if (messages.length === 0 && !isLoading) return;
+
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth",
     });
   }, [messages, isLoading]);
 
