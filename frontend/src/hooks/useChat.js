@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
-const API_URL = '"https://miya-unsugared-isorhythmically.ngrok-free.dev/generate"';
+const API_URL = "https://miya-unsugared-isorhythmically.ngrok-free.dev/generate";
 
 function generateId() {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) {
